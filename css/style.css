@@ -20,8 +20,6 @@ body {
 #container { 
     display: grid;
     gap: 10px;
-
-
  }
 
 /* Header */
@@ -30,8 +28,6 @@ body {
     grid-template-areas: 
     'hero hero feature-1'
     'hero hero feature-2';
-
-
 }
 
 .hero {
