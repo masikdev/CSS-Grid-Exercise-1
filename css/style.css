@@ -12,13 +12,17 @@ body {
     font-size: 18px;
     font-family: "Kanit", sans-serif;
     margin: 50px;
+ 
 }
 
+
 /* Container */
-.container {
+#container { 
     display: grid;
     gap: 10px;
-}
+
+
+ }
 
 /* Header */
 .header {
@@ -39,9 +43,9 @@ body {
     padding: 50px;
 }
 
-.hero > * {
+ .hero > * {
     display: none;
-}
+} 
 
 .features {
     background-color: black;
@@ -69,7 +73,7 @@ body {
 .features .price {
     font-size: 2em;
     text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
-}
+} 
 
 /* Nav */
 .menu {
@@ -100,11 +104,45 @@ body {
     font-size: 0.9em;
 }
 
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+}
+
+.hamburger-icon {
+    cursor: pointer;
+    display: inline;
+    .icon {
+        color: black;
+    }
+}
+
+.close-icon {
+    cursor: pointer;
+    display: none;
+    .icon {
+    
+        color: white;
+    }
+}
+
+@keyframes menuAnimation {
+    from {
+      
+        opacity: 0;
+      }
+    
+      to {
+     
+        opacity: 1;
+      }
+}
+
+
 /* Responsive Breakpoints */
 @media (max-width: 1024px) {
     .menu {
         order: inherit;
-        /* inherit = kembalikan ke awal(default) */
         grid-template-columns: 1fr;
     }
 
@@ -126,13 +164,68 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-content: center;
+        align-items: start;
     }
     
 }
 
 @media (max-width: 768px) {
+    .menu {
+        order: -1;
+        /* display: none; */
+    }
+
+    .menu-toggle {
+        display: flex;
+
+      
+        font-size: 30px;
+     
+    }
+ 
     
+    .menu ul {
+        background-color: red;
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        /* display: grid; */
+        display: none;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4,1fr) ;
+        gap: 0;
+        transition: 1s ease;
+        animation: menuAnimation;
+        /* position: relative; */
+        li {
+
+            border: 0.5px solid white;
+            display: grid;
+            align-content: center;
+            justify-content: center;
+            background-color: black;
+            a {
+                color: white;
+                height: 100%;
+            }
+        }
+    }
+
+  
+
+
+    .close-icon {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;  
+    }
+  
+
+ 
+  
 }
 
 @media (max-width: 450px) {
